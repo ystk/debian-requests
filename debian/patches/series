@@ -3,3 +3,4 @@
 03_export-IncompleteRead.patch
 04_make-requests.packages.urllib3-same-as-urllib3.patch
 05_do-not-ascribe-cookies-to-the-target-domain.patch
+CVE-2023-32681.patch

@@ -1,3 +1,19 @@
+requests (2.4.3-6+deb8u1) jessie-security; urgency=high
+
+  * Non-maintainer upload by the ELTS team.
+  * Fix CVE-2023-32681:
+    Requests has been leaking Proxy-Authorization headers to destination
+    servers when redirected to an HTTPS endpoint. For HTTP connections sent
+    through the tunnel, the proxy will identify the header in the request
+    itself and remove it prior to forwarding to the destination server. However
+    when sent over HTTPS, the `Proxy-Authorization` header must be sent in the
+    CONNECT request as the proxy has no visibility into the tunneled request.
+    This results in Requests forwarding proxy credentials to the destination
+    server unintentionally, allowing a malicious actor to potentially
+    exfiltrate sensitive information.
+
+ -- Markus Koschany <apo@debian.org>  Sun, 18 Jun 2023 19:42:03 +0200
+
 requests (2.4.3-6) unstable; urgency=medium
 
   * debian/patches/05_do-not-ascribe-cookies-to-the-target-domain.patch
